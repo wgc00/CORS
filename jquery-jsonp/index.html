@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="jquery.js"></script>
+
+				<script type="text/javascript">
+					function send() {
+						$.ajax({
+							method: 'get',
+							url: 'http://localhost:8080/cors',
+							dataType: 'jsonp'
+						}).done((data) => {
+							alert("ksfdjsk")
+						});
+					}
+		
+					function send21() {
+		
+						fetch('http://localhost:8080/cors', {
+								method: 'get',
+							}).then(resp => resp.text())
+							.then(console.log);
+		
+		
+					}
+		
+					function send54() {
+						axios({
+								method: 'get',
+								url: 'http://localhost:8080/cors'
+							}).then((res) => console.log(res.data));
+					}
+				</script>
+	</head>
+	<body>
+		<button onclick="send()">发送</button>
+
+
+
+	</body>
+</html>

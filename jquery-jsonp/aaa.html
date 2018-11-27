@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+    <button onclick="fasong()">发送</button>
+</body>
+
+<script>
+
+ const url = 'http://localhost:8080';
+
+
+ function fasong123() {
+     fetch(url + "/cors", {
+         method: 'get',
+     }).then(resp => resp.text())
+       .then(console.log);
+ }
+
+ function fasong() {
+     $.ajax({
+         method: 'get',
+         url: url + "/cors",
+         dataType: 'jsonp',
+         jsonpCallback: 'hehehe',
+         jsonp: 'xxxxxxxxxxxxxxxxxxxxxxx'
+     }).done((data) => {
+         console.log(3333333333333333, data);
+     }).fail((x, y, z) => {
+         console.error(x, y, z);
+     })
+ }
+
+ function loadScript(src) {
+     const script = document.createElement('script');
+     script.src = src;
+     document.body.appendChild(script);
+ }
+
+ function fason2g() {
+     if (window.confirm('是否发送?')) {
+         loadScript(`${url}/cors?callback=aaa`);
+     } else {
+         loadScript(`${url}/rrr?callback=bbb`);
+     }
+ }
+
+ function aaa(c) {
+     alert(c);
+ }
+
+ function bbb(c) {
+     console.log(c);
+ }
+
+ function fasong2() {
+     if (window.confirm('是否发送?')) {
+         $.ajax({
+             method: 'get',
+             url: url
+         }).done((data) => {
+             console.log(data);
+         }).fail((x, y, z) => {
+             console.error(x, y, z);
+         })
+     }
+ }
+</script>
+
+</html>
